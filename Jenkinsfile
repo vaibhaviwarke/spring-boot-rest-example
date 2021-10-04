@@ -11,6 +11,7 @@ pipeline {
         }
         stage('Build Docker Image') {
            steps {
+		   whoami
                 sh 'docker build -t java-project .'
            }
          }
