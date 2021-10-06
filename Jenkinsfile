@@ -9,16 +9,10 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
-        stage('Build Docker Image') {
-           steps {
-		   sh 'whoami'
-                sh 'docker build -t java-project .'
-           }
-         }
         stage('Upload Docker Image to AWS ECR') {
             steps {
 			   script {
-			      withDockerRegistry([credentialsId:'ecr:ap-south-1:java-project-ecr', url:"357942556956.dkr.ecr.ap-south-1.amazonaws.com"]){
+			      docker.withRegistry('357942556956.dkr.ecr.ap-south-1.amazonaws.com', 'ecr:ap-south-1:357942556956'){
                   sh """
 				  echo "Tagging the Docker Image: In Progress"
 				  docker tag java-project:latest 357942556956.dkr.ecr.ap-south-1.amazonaws.com/java-project:1.0.1
