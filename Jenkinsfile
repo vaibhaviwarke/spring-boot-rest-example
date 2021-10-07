@@ -29,7 +29,7 @@ pipeline {
         stage('Deploy to Production') {
             steps {
                 sh 'date'
-            }
+	    }
         }
     }
 }
