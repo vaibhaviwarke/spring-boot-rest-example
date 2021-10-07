@@ -11,17 +11,20 @@ pipeline {
         }
 	stage('Build Docker Image') {
            steps {
-                sh 'docker build -t java-project .'
+                sh """
+		aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 357942556956.dkr.ecr.ap-south-1.amazonaws.com
+		docker build -t java-project .
+		"""
            }
          }
         stage('Upload Docker Image to AWS ECR') {
             steps {
 		sh """
 		echo "Tagging the Docker Image: In Progress"
-		docker tag java-project:latest 357942556956.dkr.ecr.ap-south-1.amazonaws.com/java-project:1.0.1
+		docker tag java-project:latest 357942556956.dkr.ecr.ap-south-1.amazonaws.com/java-project:latest
 		echo "Tagging the Docker Image: Completed"
 		echo "Push Docker Image to ECR : In Progress"
-		docker push 357942556956.dkr.ecr.ap-south-1.amazonaws.com/java-project:1.0.1
+		docker push 357942556956.dkr.ecr.ap-south-1.amazonaws.com/java-project:latest
 		echo "Push Docker Image to ECR : Completed"
                 """
 		}
