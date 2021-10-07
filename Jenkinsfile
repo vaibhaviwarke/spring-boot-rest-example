@@ -9,6 +9,11 @@ pipeline {
                 sh 'mvn clean package'
             }
         }
+	stage('Build Docker Image') {
+           steps {
+                sh 'docker build -t java-project .'
+           }
+         }
         stage('Upload Docker Image to AWS ECR') {
             steps {
 			   script {
