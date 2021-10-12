@@ -60,7 +60,7 @@ spring:
 
   datasource:
     driverClassName: com.mysql.jdbc.Driver
-    url: db-spring-boot.co65rmwp009s.us-east-1.rds.amazonaws.com/bootexample
+    url: jdbc:mysql://db-spring-boot.co65rmwp009s.us-east-1.rds.amazonaws.com:3306/bootexample
     username: admin
     password: admin123
 
