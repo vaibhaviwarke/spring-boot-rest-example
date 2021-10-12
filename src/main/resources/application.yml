@@ -10,6 +10,10 @@ spring.datasource:
     url: jdbc:mysql://db-spring-boot.co65rmwp009s.us-east-1.rds.amazonaws.com:3306/bootexample
     username: admin
     password: admin123
+jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLInnoDBDialect
+      ddl-auto: create-drop # todo: in non-dev environments, comment this out:
 
 server:
   port: 8090
