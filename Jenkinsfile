@@ -7,12 +7,13 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 sh 'mvn clean install'
+		sh ''
             }
         }
 	stage('Build Docker Image') {
            steps {
                 sh """
-		aws --region us-west-2 ecr get-login-password | docker login --username AWS --password-stdin 357942556956.dkr.ecr.ap-south-1.amazonaws.com
+		aws --region ap-south-1 ecr get-login-password | docker login --username AWS --password-stdin 357942556956.dkr.ecr.ap-south-1.amazonaws.com
 		docker build -t java-project .
 		"""
            }
