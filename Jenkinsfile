@@ -7,7 +7,7 @@ pipeline {
         stage('Code Compilation') {
             steps {
                 sh 'mvn clean install'
-		sh ''
+		sh 'aws s3 cp /target/spring-boot-rest-example-0.5.0.war s3://spring-boot-war/spring-boot-rest-example-0.5.0.war'
             }
         }
 	stage('Build Docker Image') {
