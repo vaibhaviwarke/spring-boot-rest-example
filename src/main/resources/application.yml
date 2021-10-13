@@ -62,3 +62,7 @@ spring:
     url: jdbc:mysql://db-spring-boot.co65rmwp009s.us-east-1.rds.amazonaws.com/bootexample?useSSL=false
     username: admin
     password: admin123
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.MySQLInnoDBDialect
+      ddl-auto: update
