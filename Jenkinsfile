@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Code Compilation') {
             steps {
-                sh 'mvn clean package'
+                sh 'mvn clean install'
             }
         }
 	stage('Build Docker Image') {
