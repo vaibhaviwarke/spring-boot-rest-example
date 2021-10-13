@@ -13,8 +13,6 @@ pipeline {
            steps {
                 sh """
 		aws --region us-west-2 ecr get-login-password | docker login --username AWS --password-stdin 357942556956.dkr.ecr.ap-south-1.amazonaws.com
-		#docker login -u AWS -p $(aws ecr get-login-password --region ap-south-1) 357942556956.dkr.ecr.ap-south-1.amazonaws.com
-		#aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 357942556956.dkr.ecr.ap-south-1.amazonaws.com
 		docker build -t java-project .
 		"""
            }
