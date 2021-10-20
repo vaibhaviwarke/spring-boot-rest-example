@@ -9,17 +9,26 @@ pipeline {
     stages {
         stage('Code Compilation') {
             steps {
-                	shared-library.CompileCode()
+		    script{
+		    	shared-library.CompileCode()
+		    }
+                	
             }
         }
 	stage('Build Docker Image') {
            steps {
-              		shared-library.BuildDockerImage()
+		   script{
+		    	shared-library.BuildDockerImage()
+		    }
+              		
            }
          }
         stage('Upload Docker Image to AWS ECR') {
             steps {
-			shared-library.UploadDockerImageToECR()
+		    script{
+		    	shared-library.UploadDockerImageToECR()
+		    }
+			
 		}
         }
         stage('Deploy') {
