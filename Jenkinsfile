@@ -10,7 +10,7 @@ pipeline {
         stage('Code Compilation') {
             steps {
 		    script{
-		    	shared-library.CompileCode()
+		    	sharedlibrary.CompileCode()
 		    }
                 	
             }
@@ -18,7 +18,7 @@ pipeline {
 	stage('Build Docker Image') {
            steps {
 		   script{
-		    	shared-library.BuildDockerImage()
+		    	sharedlibrary.BuildDockerImage()
 		    }
               		
            }
@@ -26,7 +26,7 @@ pipeline {
         stage('Upload Docker Image to AWS ECR') {
             steps {
 		    script{
-		    	shared-library.UploadDockerImageToECR()
+		    	sharedlibrary.UploadDockerImageToECR()
 		    }
 			
 		}
