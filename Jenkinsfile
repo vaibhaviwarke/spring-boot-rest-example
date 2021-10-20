@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Code Compilation') {
             steps {
-                	CompileCode(config)
+                	CompileCode()
             }
         }
 	stage('Build Docker Image') {
