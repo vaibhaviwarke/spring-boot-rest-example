@@ -1,5 +1,5 @@
 @Library('shared-libraries') _
-def config = [name: 'Newman', dayOfWeek: 'Friday']
+
 
 pipeline {
     options {
