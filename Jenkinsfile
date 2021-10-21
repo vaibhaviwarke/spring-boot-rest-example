@@ -5,6 +5,13 @@ pipeline {
     options {
         buildDiscarder(logRotator(numToKeepStr: '5', artifactNumToKeepStr: '5'))
     }
+    
+    environment {
+        DB_HOSTNAME = 'db-spring-boot.co65rmwp009s.us-east-1.rds.amazonaws.com'
+	DB_DATABASE = 'bootexample'
+	DB_USER = 'admin'
+	DB_PASS = 'admin123'
+    }
     agent any
     stages {
         stage('Code Compilation') {
